@@ -10,7 +10,6 @@
 		1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E285254B4C2700F4F449 /* AppDelegate.swift */; };
 		1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E287254B4C2700F4F449 /* SceneDelegate.swift */; };
 		1689E28A254B4C2700F4F449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E289254B4C2700F4F449 /* ViewController.swift */; };
-		1689E28D254B4C2700F4F449 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1689E28B254B4C2700F4F449 /* Main.storyboard */; };
 		1689E28F254B4C2800F4F449 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1689E28E254B4C2800F4F449 /* Assets.xcassets */; };
 		1689E292254B4C2800F4F449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1689E290254B4C2800F4F449 /* LaunchScreen.storyboard */; };
 		1689E29D254B4C2800F4F449 /* ExchangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E29C254B4C2800F4F449 /* ExchangerTests.swift */; };
@@ -39,7 +38,6 @@
 		1689E285254B4C2700F4F449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1689E287254B4C2700F4F449 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1689E289254B4C2700F4F449 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1689E28C254B4C2700F4F449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1689E28E254B4C2800F4F449 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1689E291254B4C2800F4F449 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1689E293254B4C2800F4F449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				1689E285254B4C2700F4F449 /* AppDelegate.swift */,
 				1689E287254B4C2700F4F449 /* SceneDelegate.swift */,
 				1689E289254B4C2700F4F449 /* ViewController.swift */,
-				1689E28B254B4C2700F4F449 /* Main.storyboard */,
 				1689E28E254B4C2800F4F449 /* Assets.xcassets */,
 				1689E290254B4C2800F4F449 /* LaunchScreen.storyboard */,
 				1689E293254B4C2800F4F449 /* Info.plist */,
@@ -138,6 +135,7 @@
 				1689E27E254B4C2700F4F449 /* Sources */,
 				1689E27F254B4C2700F4F449 /* Frameworks */,
 				1689E280254B4C2700F4F449 /* Resources */,
+				16765DAF254B4E3C00A67E3C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -233,7 +231,6 @@
 			files = (
 				1689E292254B4C2800F4F449 /* LaunchScreen.storyboard in Resources */,
 				1689E28F254B4C2800F4F449 /* Assets.xcassets in Resources */,
-				1689E28D254B4C2700F4F449 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +249,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16765DAF254B4E3C00A67E3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1689E27E254B4C2700F4F449 /* Sources */ = {
@@ -296,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1689E28B254B4C2700F4F449 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1689E28C254B4C2700F4F449 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1689E290254B4C2800F4F449 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
