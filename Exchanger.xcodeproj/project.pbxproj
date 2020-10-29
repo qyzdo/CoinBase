@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16765DBC254B501800A67E3C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16765DBB254B501800A67E3C /* MainScreenView.swift */; };
 		1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E285254B4C2700F4F449 /* AppDelegate.swift */; };
 		1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E287254B4C2700F4F449 /* SceneDelegate.swift */; };
 		1689E28A254B4C2700F4F449 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E289254B4C2700F4F449 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		16765DBB254B501800A67E3C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		1689E282254B4C2700F4F449 /* Exchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exchanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1689E285254B4C2700F4F449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1689E287254B4C2700F4F449 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16765DB4254B4F7B00A67E3C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1689E285254B4C2700F4F449 /* AppDelegate.swift */,
+				1689E287254B4C2700F4F449 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		16765DB5254B4F9100A67E3C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1689E289254B4C2700F4F449 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		16765DB6254B4F9C00A67E3C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1689E290254B4C2800F4F449 /* LaunchScreen.storyboard */,
+				16765DBB254B501800A67E3C /* MainScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		16765DB7254B4FA200A67E3C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1689E28E254B4C2800F4F449 /* Assets.xcassets */,
+				1689E293254B4C2800F4F449 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		16765DB9254B4FD000A67E3C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		16765DBA254B4FD500A67E3C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		1689E279254B4C2700F4F449 = {
 			isa = PBXGroup;
 			children = (
@@ -97,12 +148,12 @@
 		1689E284254B4C2700F4F449 /* Exchanger */ = {
 			isa = PBXGroup;
 			children = (
-				1689E285254B4C2700F4F449 /* AppDelegate.swift */,
-				1689E287254B4C2700F4F449 /* SceneDelegate.swift */,
-				1689E289254B4C2700F4F449 /* ViewController.swift */,
-				1689E28E254B4C2800F4F449 /* Assets.xcassets */,
-				1689E290254B4C2800F4F449 /* LaunchScreen.storyboard */,
-				1689E293254B4C2800F4F449 /* Info.plist */,
+				16765DB4254B4F7B00A67E3C /* AppDelegate */,
+				16765DB5254B4F9100A67E3C /* Controller */,
+				16765DBA254B4FD500A67E3C /* Model */,
+				16765DB9254B4FD000A67E3C /* Networking */,
+				16765DB7254B4FA200A67E3C /* Resources */,
+				16765DB6254B4F9C00A67E3C /* View */,
 			);
 			path = Exchanger;
 			sourceTree = "<group>";
@@ -278,6 +329,7 @@
 				1689E28A254B4C2700F4F449 /* ViewController.swift in Sources */,
 				1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */,
 				1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */,
+				16765DBC254B501800A67E3C /* MainScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AB3Z82UPH;
-				INFOPLIST_FILE = Exchanger/Info.plist;
+				INFOPLIST_FILE = Exchanger/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,7 +518,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AB3Z82UPH;
-				INFOPLIST_FILE = Exchanger/Info.plist;
+				INFOPLIST_FILE = Exchanger/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
