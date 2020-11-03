@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163FC9002551501C000273C1 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163FC8FF2551501C000273C1 /* ServiceProvider.swift */; };
+		163FC90525515055000273C1 /* CoinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163FC90425515055000273C1 /* CoinsService.swift */; };
 		16765DBC254B501800A67E3C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16765DBB254B501800A67E3C /* MainScreenView.swift */; };
 		1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E285254B4C2700F4F449 /* AppDelegate.swift */; };
 		1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E287254B4C2700F4F449 /* SceneDelegate.swift */; };
@@ -15,6 +17,8 @@
 		1689E292254B4C2800F4F449 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1689E290254B4C2800F4F449 /* LaunchScreen.storyboard */; };
 		1689E29D254B4C2800F4F449 /* ExchangerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E29C254B4C2800F4F449 /* ExchangerTests.swift */; };
 		1689E2A8254B4C2800F4F449 /* ExchangerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E2A7254B4C2800F4F449 /* ExchangerUITests.swift */; };
+		16AFEDC0254F518700075F61 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFEDBF254F518700075F61 /* CoinModel.swift */; };
+		16AFEDC5254F538700075F61 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFEDC4254F538700075F61 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		163FC8FF2551501C000273C1 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		163FC90425515055000273C1 /* CoinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsService.swift; sourceTree = "<group>"; };
 		16765DBB254B501800A67E3C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		1689E282254B4C2700F4F449 /* Exchanger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exchanger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1689E285254B4C2700F4F449 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		1689E2A3254B4C2800F4F449 /* ExchangerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1689E2A7254B4C2800F4F449 /* ExchangerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangerUITests.swift; sourceTree = "<group>"; };
 		1689E2A9254B4C2800F4F449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16AFEDBF254F518700075F61 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
+		16AFEDC4254F538700075F61 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,9 @@
 		16765DB9254B4FD000A67E3C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				16AFEDC4254F538700075F61 /* Service.swift */,
+				163FC8FF2551501C000273C1 /* ServiceProvider.swift */,
+				163FC90425515055000273C1 /* CoinsService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 		16765DBA254B4FD500A67E3C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				16AFEDBF254F518700075F61 /* CoinModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -326,9 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16AFEDC0254F518700075F61 /* CoinModel.swift in Sources */,
 				1689E28A254B4C2700F4F449 /* ViewController.swift in Sources */,
+				163FC90525515055000273C1 /* CoinsService.swift in Sources */,
+				163FC9002551501C000273C1 /* ServiceProvider.swift in Sources */,
 				1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */,
 				1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */,
+				16AFEDC5254F538700075F61 /* Service.swift in Sources */,
 				16765DBC254B501800A67E3C /* MainScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

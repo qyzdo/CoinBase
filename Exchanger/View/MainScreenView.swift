@@ -14,14 +14,14 @@ final class MainScreenView: UIView {
         self.backgroundColor = .systemBackground
         let safeArea = self.layoutMarginsGuide
 
-        addSubview(pickerView)
-        pickerView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5).isActive = true
-        pickerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        pickerView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        pickerView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        addSubview(pickerValueField)
+        pickerValueField.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5).isActive = true
+        pickerValueField.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        pickerValueField.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        pickerValueField.heightAnchor.constraint(equalToConstant: 35).isActive = true
 
         addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: pickerView.bottomAnchor, constant: 5).isActive = true
+        imageView.topAnchor.constraint(equalTo: pickerValueField.bottomAnchor, constant: 5).isActive = true
         imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
@@ -46,6 +46,14 @@ final class MainScreenView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+
+    public var pickerValueField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.backgroundColor = .systemGray5
+        textField.textAlignment = .center
+        return textField
+    }()
 
     public var pickerView: UIPickerView = {
         let pickerView = UIPickerView()
@@ -76,7 +84,7 @@ final class MainScreenView: UIView {
         return stackView
     }()
 
-    private var inputValueLabel: UILabel = {
+    public var inputValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
@@ -93,7 +101,7 @@ final class MainScreenView: UIView {
         return textField
     }()
 
-    private var resultValueLabel: UILabel = {
+    public var resultValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
