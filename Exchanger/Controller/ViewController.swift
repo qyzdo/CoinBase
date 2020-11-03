@@ -43,7 +43,7 @@ final class ViewController: UIViewController {
         mainView.pickerView.delegate = self
         mainView.pickerView.dataSource = self
         mainView.pickerValueField.inputView = mainView.pickerView
-        mainView.inputValueField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        mainView.inputValueField.addTarget(self, action: #selector(inputTextFieldDidChange), for: .editingChanged)
         mainView.invertValuesSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         inputField = mainView.inputValueField
         resultField = mainView.resultValueField
@@ -72,7 +72,7 @@ final class ViewController: UIViewController {
     }
 
     // MARK: - User interaction methods
-    @objc private func textFieldDidChange() {
+    @objc private func inputTextFieldDidChange() {
         unwrapAndConvert()
     }
 
