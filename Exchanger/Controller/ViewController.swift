@@ -40,14 +40,24 @@ final class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.pickerView.delegate = self
-        mainView.pickerView.dataSource = self
+        setDelegates()
         mainView.pickerValueField.inputView = mainView.pickerView
-        mainView.inputValueField.addTarget(self, action: #selector(inputTextFieldDidChange), for: .editingChanged)
-        mainView.invertValuesSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         inputField = mainView.inputValueField
         resultField = mainView.resultValueField
+
+        addActions()
         loadData()
+    }
+
+    private func addActions() {
+        inputField.addTarget(self, action: #selector(inputTextFieldDidChange), for: .editingChanged)
+        mainView.invertValuesSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        resultField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resultFieldClicked)))
+    }
+
+    private func setDelegates() {
+        mainView.pickerView.delegate = self
+        mainView.pickerView.dataSource = self
     }
 
     // MARK: - Get data
@@ -82,6 +92,12 @@ final class ViewController: UIViewController {
         } else {
             invertConversion = false
         }
+    }
+
+    @objc private func resultFieldClicked() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = resultField.text
+        self.showToast(message: "Copied to clipboard", seconds: 0.5)
     }
 
     // MARK: - Functions

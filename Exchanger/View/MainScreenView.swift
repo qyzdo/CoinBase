@@ -123,6 +123,7 @@ final class MainScreenView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .systemGray5
+        label.isUserInteractionEnabled = true
         return label
     }()
 }
