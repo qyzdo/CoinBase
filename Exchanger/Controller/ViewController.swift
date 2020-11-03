@@ -16,8 +16,16 @@ final class ViewController: UIViewController {
     private var resultField: UILabel!
     private var selectedRow = 0 {
         didSet {
-            mainView.resultValueLabel.text = coins[selectedRow].symbol
+            setLabelCurrencies()
             mainView.pickerValueField.text = titles[selectedRow]
+            unwrapAndConvert()
+        }
+    }
+
+    private var invertConversion = false {
+        didSet {
+            setLabelCurrencies()
+            unwrapAndConvert()
         }
     }
 
@@ -36,6 +44,7 @@ final class ViewController: UIViewController {
         mainView.pickerView.dataSource = self
         mainView.pickerValueField.inputView = mainView.pickerView
         mainView.inputValueField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        mainView.invertValuesSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         inputField = mainView.inputValueField
         resultField = mainView.resultValueField
         loadData()
@@ -64,7 +73,34 @@ final class ViewController: UIViewController {
 
     // MARK: - User interaction methods
     @objc private func textFieldDidChange() {
+        unwrapAndConvert()
+    }
 
+    @objc private func switchChanged() {
+        if mainView.invertValuesSwitch.isOn {
+            invertConversion = true
+        } else {
+            invertConversion = false
+        }
+    }
+
+    // MARK: - Functions
+    private func convertPrice(value: Double, price: String) {
+        var formattedString = ""
+        guard let priceDouble = Double(price) else {
+            print("Cant change number")
+            return
+        }
+        if invertConversion == false {
+            formattedString = String(format: "%.10f", value / priceDouble)
+
+        } else {
+            formattedString = String(format: "%.10f", value * priceDouble)
+        }
+        resultField.text = formattedString
+    }
+
+    private func unwrapAndConvert() {
         guard let number = inputField.text else {
             print("No number")
             resultField.text = ""
@@ -80,14 +116,14 @@ final class ViewController: UIViewController {
         convertPrice(value: numberDouble, price: coins[selectedRow].price)
     }
 
-    // MARK: - Functions
-    private func convertPrice(value: Double, price: String) {
-        guard let priceDouble = Double(price) else {
-            print("Cant change number")
-            return
+    private func setLabelCurrencies() {
+        if invertConversion == true {
+            mainView.inputValueLabel.text = coins[selectedRow].symbol
+            mainView.resultValueLabel.text = "$"
+        } else {
+            mainView.resultValueLabel.text = coins[selectedRow].symbol
+            mainView.inputValueLabel.text = "$"
         }
-        let formatted = String(format: "%.10f", value/priceDouble)
-        resultField.text = formatted
     }
 }
 

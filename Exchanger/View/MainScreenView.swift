@@ -26,8 +26,12 @@ final class MainScreenView: UIView {
         imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
+        addSubview(invertValuesSwitch)
+        invertValuesSwitch.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
+        invertValuesSwitch.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
         addSubview(currentPriceLabel)
-        currentPriceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
+        currentPriceLabel.topAnchor.constraint(equalTo: invertValuesSwitch.bottomAnchor, constant: 5).isActive = true
         currentPriceLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
         addSubview(stackView)
@@ -53,6 +57,12 @@ final class MainScreenView: UIView {
         textField.backgroundColor = .systemGray5
         textField.textAlignment = .center
         return textField
+    }()
+
+    public var invertValuesSwitch: UISwitch = {
+        let invertValuesSwitch = UISwitch()
+        invertValuesSwitch.translatesAutoresizingMaskIntoConstraints = false
+        return invertValuesSwitch
     }()
 
     public var pickerView: UIPickerView = {
