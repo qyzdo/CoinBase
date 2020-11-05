@@ -72,7 +72,7 @@ final class MainScreenView: UIView {
     }()
 
     public var imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "photo"))
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
