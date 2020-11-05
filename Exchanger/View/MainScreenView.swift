@@ -45,6 +45,11 @@ final class MainScreenView: UIView {
         stackView.addArrangedSubview(resultValueLabel)
         stackView.addArrangedSubview(resultValueField)
         resultValueField.heightAnchor.constraint(equalToConstant: 35).isActive = true
+
+        addSubview(chartsButton)
+        chartsButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 25).isActive = true
+        chartsButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        chartsButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -125,5 +130,16 @@ final class MainScreenView: UIView {
         label.backgroundColor = .systemGray5
         label.isUserInteractionEnabled = true
         return label
+    }()
+
+    public var chartsButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .systemBlue
+        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.gray, for: .selected)
+        button.setTitle("Check history charts", for: .normal)
+        button.layer.cornerRadius = 10
+        return button
     }()
 }

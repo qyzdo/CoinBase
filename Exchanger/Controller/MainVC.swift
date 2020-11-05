@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MainVC: UIViewController {
 
     // MARK: - Properties
     private var titles = [String]()
@@ -53,6 +53,7 @@ final class ViewController: UIViewController {
     private func addActions() {
         inputField.addTarget(self, action: #selector(inputTextFieldDidChange), for: .editingChanged)
         mainView.invertValuesSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        mainView.chartsButton.addTarget(self, action: #selector(openChartsButtonClicked), for: .touchUpInside)
         resultField.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(resultFieldClicked)))
     }
 
@@ -90,6 +91,10 @@ final class ViewController: UIViewController {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
+    }
+
+    @objc private func openChartsButtonClicked() {
+        print("clicked")
     }
 
     @objc private func inputTextFieldDidChange() {
@@ -165,7 +170,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension MainVC: UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - Picker view methods
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
