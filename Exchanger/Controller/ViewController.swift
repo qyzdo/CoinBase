@@ -83,6 +83,11 @@ final class ViewController: UIViewController {
     }
 
     // MARK: - User interaction methods
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
     @objc private func inputTextFieldDidChange() {
         unwrapAndConvert()
     }
