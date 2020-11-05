@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1605361325521FEE00F62188 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1605361225521FEE00F62188 /* ToastView.swift */; };
+		163EDB3F25547DCD00957181 /* ChartsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163EDB3E25547DCD00957181 /* ChartsVC.swift */; };
 		163FC9002551501C000273C1 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163FC8FF2551501C000273C1 /* ServiceProvider.swift */; };
 		163FC90525515055000273C1 /* CoinsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163FC90425515055000273C1 /* CoinsService.swift */; };
 		16765DBC254B501800A67E3C /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16765DBB254B501800A67E3C /* MainScreenView.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		1605361225521FEE00F62188 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		163EDB3E25547DCD00957181 /* ChartsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsVC.swift; sourceTree = "<group>"; };
 		163FC8FF2551501C000273C1 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
 		163FC90425515055000273C1 /* CoinsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsService.swift; sourceTree = "<group>"; };
 		16765DBB254B501800A67E3C /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				1689E289254B4C2700F4F449 /* MainVC.swift */,
+				163EDB3E25547DCD00957181 /* ChartsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				1689E28A254B4C2700F4F449 /* MainVC.swift in Sources */,
 				163FC90525515055000273C1 /* CoinsService.swift in Sources */,
 				16FD3AD225543B7800EEC3A7 /* SVGProcessor.swift in Sources */,
+				163EDB3F25547DCD00957181 /* ChartsVC.swift in Sources */,
 				163FC9002551501C000273C1 /* ServiceProvider.swift in Sources */,
 				1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */,
 				1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */,

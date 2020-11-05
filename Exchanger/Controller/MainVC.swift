@@ -94,7 +94,9 @@ final class MainVC: UIViewController {
     }
 
     @objc private func openChartsButtonClicked() {
-        print("clicked")
+        let chartsVC = ChartsVC()
+        chartsVC.identifier = coins[selectedRow].identifier
+        navigationController?.pushViewController(chartsVC, animated: true)
     }
 
     @objc private func inputTextFieldDidChange() {
