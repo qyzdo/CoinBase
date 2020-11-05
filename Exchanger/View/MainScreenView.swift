@@ -26,16 +26,16 @@ final class MainScreenView: UIView {
         imageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
-        addSubview(invertValuesSwitch)
-        invertValuesSwitch.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
-        invertValuesSwitch.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-
         addSubview(currentPriceLabel)
-        currentPriceLabel.topAnchor.constraint(equalTo: invertValuesSwitch.bottomAnchor, constant: 5).isActive = true
+        currentPriceLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5).isActive = true
         currentPriceLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
+        addSubview(invertValuesSwitch)
+        invertValuesSwitch.topAnchor.constraint(equalTo: currentPriceLabel.bottomAnchor, constant: 5).isActive = true
+        invertValuesSwitch.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
         addSubview(stackView)
-        stackView.topAnchor.constraint(equalTo: currentPriceLabel.bottomAnchor, constant: 5).isActive = true
+        stackView.topAnchor.constraint(equalTo: invertValuesSwitch.bottomAnchor, constant: 5).isActive = true
         stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         stackView.widthAnchor.constraint(equalToConstant: 250).isActive = true
 
@@ -59,12 +59,6 @@ final class MainScreenView: UIView {
         return textField
     }()
 
-    public var invertValuesSwitch: UISwitch = {
-        let invertValuesSwitch = UISwitch()
-        invertValuesSwitch.translatesAutoresizingMaskIntoConstraints = false
-        return invertValuesSwitch
-    }()
-
     public var pickerView: UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +72,13 @@ final class MainScreenView: UIView {
         return imageView
     }()
 
-    private var currentPriceLabel: UILabel = {
+    public var invertValuesSwitch: UISwitch = {
+        let invertValuesSwitch = UISwitch()
+        invertValuesSwitch.translatesAutoresizingMaskIntoConstraints = false
+        return invertValuesSwitch
+    }()
+
+    public var currentPriceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center

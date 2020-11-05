@@ -148,11 +148,14 @@ final class ViewController: UIViewController {
     }
 
     private func setLabelCurrencies() {
+        let currentCoin = coins[selectedRow]
+        let price = String(format: "%.6f", Double(currentCoin.price)!)
+        mainView.currentPriceLabel.text = "1 \(currentCoin.symbol) = $\(price)"
         if invertConversion == true {
-            mainView.inputValueLabel.text = coins[selectedRow].symbol
+            mainView.inputValueLabel.text = currentCoin.symbol
             mainView.resultValueLabel.text = "$"
         } else {
-            mainView.resultValueLabel.text = coins[selectedRow].symbol
+            mainView.resultValueLabel.text = currentCoin.symbol
             mainView.inputValueLabel.text = "$"
         }
     }
