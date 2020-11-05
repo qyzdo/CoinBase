@@ -8,6 +8,7 @@ target 'Exchanger' do
   # Pods for Exchanger
 pod 'SVGKit'
 pod 'Kingfisher'
+pod 'Charts'
   target 'ExchangerTests' do
     inherit! :search_paths
     # Pods for testing

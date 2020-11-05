@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - CocoaLumberjack (3.7.0):
     - CocoaLumberjack/Core (= 3.7.0)
   - CocoaLumberjack/Core (3.7.0)
@@ -9,20 +12,23 @@ PODS:
     - CocoaLumberjack (~> 3.0)
 
 DEPENDENCIES:
+  - Charts
   - Kingfisher
   - SVGKit
 
 SPEC REPOS:
   trunk:
+    - Charts
     - CocoaLumberjack
     - Kingfisher
     - SVGKit
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   CocoaLumberjack: e8955b9d337ac307103b0a34fd141c32f27e53c5
   Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
   SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
 
-PODFILE CHECKSUM: 373843acc067fc28c5c9891035c5917e5e25b84e
+PODFILE CHECKSUM: 93908377a5ee1f186d3cf9df3f001f192a49aae7
 
 COCOAPODS: 1.9.3
