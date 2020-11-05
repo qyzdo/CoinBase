@@ -31,7 +31,7 @@ final class MainScreenView: UIView {
         currentPriceLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
         addSubview(invertValuesSwitch)
-        invertValuesSwitch.topAnchor.constraint(equalTo: currentPriceLabel.bottomAnchor, constant: 5).isActive = true
+        invertValuesSwitch.topAnchor.constraint(equalTo: currentPriceLabel.bottomAnchor, constant: 35).isActive = true
         invertValuesSwitch.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
 
         addSubview(stackView)

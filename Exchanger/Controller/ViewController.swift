@@ -84,6 +84,10 @@ final class ViewController: UIViewController {
 
     // MARK: - User interaction methods
 
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
