@@ -30,6 +30,7 @@ struct CoinElement: Codable {
     let uuid, slug, symbol, name: String
     let description: String?
     let iconUrl: String
+    let iconType: String
     let price: String
     let change: Double
     let rank: Int
@@ -39,7 +40,7 @@ struct CoinElement: Codable {
 
     enum CodingKeys: String, CodingKey {
         case identifier = "id"
-        case uuid, slug, symbol, name, description, iconUrl, price, change, rank, history, penalty, allTimeHigh
+        case uuid, slug, symbol, name, description, iconUrl, iconType, price, change, rank, history, penalty, allTimeHigh
     }
 }
 
