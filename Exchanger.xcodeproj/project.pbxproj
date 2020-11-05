@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		1689E2A8254B4C2800F4F449 /* ExchangerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1689E2A7254B4C2800F4F449 /* ExchangerUITests.swift */; };
 		16AFEDC0254F518700075F61 /* CoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFEDBF254F518700075F61 /* CoinModel.swift */; };
 		16AFEDC5254F538700075F61 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AFEDC4254F538700075F61 /* Service.swift */; };
+		16FD3AD225543B7800EEC3A7 /* SVGProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FD3AD125543B7800EEC3A7 /* SVGProcessor.swift */; };
 		2E9244780D936444DF235E98 /* Pods_Exchanger_ExchangerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0BAC26C9397D44CE1B5D2D /* Pods_Exchanger_ExchangerUITests.framework */; };
 		37E5AB93B47C23B7EECAFF3F /* Pods_Exchanger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A599E8D465227C0545B8C2 /* Pods_Exchanger.framework */; };
 		43F008C9AA205C8B2AE1F9AA /* Pods_ExchangerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDC72006746DB6BD7C42361 /* Pods_ExchangerTests.framework */; };
@@ -62,6 +63,7 @@
 		1689E2A9254B4C2800F4F449 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16AFEDBF254F518700075F61 /* CoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinModel.swift; sourceTree = "<group>"; };
 		16AFEDC4254F538700075F61 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		16FD3AD125543B7800EEC3A7 /* SVGProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGProcessor.swift; sourceTree = "<group>"; };
 		4A0BAC26C9397D44CE1B5D2D /* Pods_Exchanger_ExchangerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exchanger_ExchangerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		758CE9D72002EED64F535CF6 /* Pods-ExchangerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangerTests.release.xcconfig"; path = "Target Support Files/Pods-ExchangerTests/Pods-ExchangerTests.release.xcconfig"; sourceTree = "<group>"; };
 		772E648E6B37CDE3A13165D9 /* Pods-Exchanger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exchanger.debug.xcconfig"; path = "Target Support Files/Pods-Exchanger/Pods-Exchanger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 		1689E284254B4C2700F4F449 /* Exchanger */ = {
 			isa = PBXGroup;
 			children = (
+				16FD3AD025543B6A00EEC3A7 /* Tools */,
 				16765DB4254B4F7B00A67E3C /* AppDelegate */,
 				16765DB5254B4F9100A67E3C /* Controller */,
 				16765DBA254B4FD500A67E3C /* Model */,
@@ -208,6 +211,14 @@
 			path = ExchangerUITests;
 			sourceTree = "<group>";
 		};
+		16FD3AD025543B6A00EEC3A7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				16FD3AD125543B7800EEC3A7 /* SVGProcessor.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		9DCC3C603EF84BA75B7554D2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,7 +229,6 @@
 				9BADCCCE30575227BC2803F4 /* Pods-ExchangerTests.debug.xcconfig */,
 				758CE9D72002EED64F535CF6 /* Pods-ExchangerTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -490,6 +500,7 @@
 				16AFEDC0254F518700075F61 /* CoinModel.swift in Sources */,
 				1689E28A254B4C2700F4F449 /* ViewController.swift in Sources */,
 				163FC90525515055000273C1 /* CoinsService.swift in Sources */,
+				16FD3AD225543B7800EEC3A7 /* SVGProcessor.swift in Sources */,
 				163FC9002551501C000273C1 /* ServiceProvider.swift in Sources */,
 				1689E286254B4C2700F4F449 /* AppDelegate.swift in Sources */,
 				1689E288254B4C2700F4F449 /* SceneDelegate.swift in Sources */,
