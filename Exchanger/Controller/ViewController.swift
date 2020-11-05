@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     private var selectedRow = 0 {
         didSet {
             setLabelCurrencies()
+            setImage()
             mainView.pickerValueField.text = titles[selectedRow]
             unwrapAndConvert()
         }
@@ -101,6 +102,15 @@ final class ViewController: UIViewController {
     }
 
     // MARK: - Functions
+    private func setImage() {
+        let url = URL(string: coins[selectedRow].iconUrl)
+        if coins[selectedRow].iconType == "pixel" {
+            mainView.imageView.kf.setImage(with: url)
+        } else {
+            mainView.imageView.kf.setImage(with: url, options: [.processor(SVGImgProcessor())])
+        }
+    }
+
     private func convertPrice(value: Double, price: String) {
         var formattedString = ""
         guard let priceDouble = Double(price) else {

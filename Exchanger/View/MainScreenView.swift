@@ -71,7 +71,7 @@ final class MainScreenView: UIView {
         return pickerView
     }()
 
-    private var imageView: UIImageView = {
+    public var imageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "photo"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
