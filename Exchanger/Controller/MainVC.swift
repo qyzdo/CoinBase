@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class MainVC: UIViewController {
 
@@ -120,11 +121,22 @@ final class MainVC: UIViewController {
     // MARK: - Functions
     private func setImage() {
         let url = URL(string: coins[selectedRow].iconUrl)
+        mainView.imageView.kf.indicatorType = .activity
+        var processor: ImageProcessor
+
         if coins[selectedRow].iconType == "pixel" {
-            mainView.imageView.kf.setImage(with: url)
+            processor = DownsamplingImageProcessor(size: mainView.imageView.bounds.size)
         } else {
-            mainView.imageView.kf.setImage(with: url, options: [.processor(SVGImgProcessor())])
+            processor = SVGImgProcessor() |> DownsamplingImageProcessor(size: mainView.imageView.bounds.size)
         }
+
+        mainView.imageView.kf.setImage(with: url,
+                                       options: [
+                                               .processor(processor),
+                                               .scaleFactor(UIScreen.main.scale),
+                                               .transition(.fade(1)),
+                                               .cacheOriginalImage
+                                           ])
     }
 
     private func convertPrice(value: Double, price: String) {
