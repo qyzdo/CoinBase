@@ -12,11 +12,24 @@ struct CoinModel: Codable {
     let data: DataClass
 }
 
+struct SingleCoinModel: Codable {
+    let status: String
+    let data: SingleDataClass
+}
+
 // MARK: - DataClass
 struct DataClass: Codable {
-    let stats: Stats
     let base: Base
     let coins: [CoinElement]
+}
+
+struct SingleDataClass: Codable {
+    let history: [History]
+}
+
+struct History: Codable {
+    let price: String
+    let timestamp: Int
 }
 
 // MARK: - Base
@@ -34,7 +47,7 @@ struct CoinElement: Codable {
     let price: String
     let change: Double
     let rank: Int
-    let history: [String?]
+    let history: [String]
     let allTimeHigh: AllTimeHigh
     let penalty: Bool
 
@@ -48,10 +61,4 @@ struct CoinElement: Codable {
 struct AllTimeHigh: Codable {
     let price: String
     let timestamp: Int
-}
-
-// MARK: - Stats
-struct Stats: Codable {
-    let total, offset, limit: Int
-    let order, base: String
 }

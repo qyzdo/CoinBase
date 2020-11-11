@@ -22,7 +22,7 @@ extension CoinsService: Service {
         case .coins:
             return "/v1/public/coins"
         case .coin(let identifier):
-            return "/v1/public/coin/\(identifier)"
+            return "/v1/public/coin/\(identifier)/history/24h"
         }
     }
 
