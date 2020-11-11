@@ -40,6 +40,11 @@ final class MainVC: UIViewController {
         self.view = MainScreenView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.portrait, andRotateTo: .portrait)
+   }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
@@ -49,6 +54,11 @@ final class MainVC: UIViewController {
 
         addActions()
         loadData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(.all)
     }
 
     private func addActions() {
@@ -85,10 +95,6 @@ final class MainVC: UIViewController {
     }
 
     // MARK: - User interaction methods
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
-    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
