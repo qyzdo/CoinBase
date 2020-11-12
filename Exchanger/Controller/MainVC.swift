@@ -105,6 +105,11 @@ final class MainVC: UIViewController {
 
     @objc private func openChartsButtonClicked() {
         let chartsVC = ChartsVC()
+
+        guard coins.indices.contains(selectedRow) else {
+            return
+        }
+
         chartsVC.coinModel = coins[selectedRow]
         navigationController?.pushViewController(chartsVC, animated: true)
     }
