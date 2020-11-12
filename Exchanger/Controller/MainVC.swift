@@ -15,6 +15,8 @@ final class MainVC: UIViewController {
     private var coins = [CoinElement]()
     private var inputField: UITextField!
     private var resultField: UILabel!
+    private let formatter = NumberFormatter()
+
     private var selectedRow = 0 {
         didSet {
             setLabelCurrencies()
@@ -48,6 +50,7 @@ final class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDelegates()
+        setupFormatter()
         mainView.pickerValueField.inputView = mainView.pickerView
         inputField = mainView.inputValueField
         resultField = mainView.resultValueField
@@ -145,33 +148,48 @@ final class MainVC: UIViewController {
                                            ])
     }
 
+    private func setupFormatter() {
+        formatter.locale = .current
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 10
+    }
+
     private func convertPrice(value: Double, price: String) {
-        var formattedString = ""
+        var result = 0.0
+
         guard let priceDouble = Double(price) else {
             print("Cant change number")
             return
         }
+
         if invertConversion == false {
-            formattedString = String(format: "%.10f", value / priceDouble)
+            result = value / priceDouble
 
         } else {
-            formattedString = String(format: "%.10f", value * priceDouble)
+            result = value * priceDouble
         }
-        resultField.text = formattedString
+
+        let numberNS = NSNumber(value: result)
+        let formattedNumber = formatter.string(from: numberNS)
+
+        resultField.text = formattedNumber
+
     }
 
     private func unwrapAndConvert() {
-        guard let number = inputField.text else {
+        guard let numberString = inputField.text else {
             print("No number")
             resultField.text = ""
             return
         }
 
-        guard let numberDouble = Double(number) else {
-            print("Cant change number")
+        guard let number = formatter.number(from: numberString) else {
+            print("Wrong number")
             resultField.text = ""
             return
         }
+
+        let numberDouble = Double(truncating: number)
 
         convertPrice(value: numberDouble, price: coins[selectedRow].price)
     }
