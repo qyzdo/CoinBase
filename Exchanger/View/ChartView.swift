@@ -15,8 +15,13 @@ final class ChartView: UIView {
         self.backgroundColor = .systemBackground
         let safeArea = self.layoutMarginsGuide
 
+        addSubview(segmentedControl)
+        segmentedControl.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5).isActive = true
+        segmentedControl.leftAnchor.constraint(equalTo: safeArea.leftAnchor).isActive = true
+        segmentedControl.rightAnchor.constraint(equalTo: safeArea.rightAnchor).isActive = true
+
         addSubview(chart)
-        chart.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5).isActive = true
+        chart.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 5).isActive = true
         chart.leftAnchor.constraint(equalTo: safeArea.leftAnchor).isActive = true
         chart.rightAnchor.constraint(equalTo: safeArea.rightAnchor).isActive = true
         chart.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
@@ -26,6 +31,12 @@ final class ChartView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+
+    public var segmentedControl: UISegmentedControl = {
+        let segmentControl = UISegmentedControl(items: TimeFrame.allCases.map({ "\($0.rawValue)" }))
+        segmentControl.translatesAutoresizingMaskIntoConstraints = false
+        return segmentControl
+    }()
 
     public var chart: LineChartView = {
         let chart = LineChartView()

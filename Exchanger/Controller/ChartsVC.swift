@@ -10,6 +10,25 @@ import Charts
 
 final class ChartsVC: UIViewController {
 
+    private var xFormatter: IAxisValueFormatter = XAxisNameFormaterWithTime()
+
+    private var timeFrame = TimeFrame(rawValue: "24h") {
+        didSet {
+            switch timeFrame {
+            case .hours:
+                xFormatter = XAxisNameFormaterWithTime()
+            default:
+                xFormatter = XAxisNameFormater()
+            }
+            chartView.chart.xAxis.valueFormatter = xFormatter
+
+            guard let timeframe = timeFrame else {
+                return
+            }
+            loadData(timeFrame: timeframe)
+        }
+    }
+
     // MARK: - Properties
     var coinModel: CoinElement!
 
@@ -30,7 +49,8 @@ final class ChartsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        loadData(timeFrame: timeFrame!)
+        setupSegmentControl()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,10 +58,10 @@ final class ChartsVC: UIViewController {
         AppUtility.lockOrientation(.all)
     }
 
-    private func loadData() {
+    private func loadData(timeFrame: TimeFrame) {
         let provider = ServiceProvider<CoinsService>()
 
-        provider.load(service: .coin(identifier: String(coinModel.identifier)), decodeType: SingleCoinModel.self) { result in
+        provider.load(service: .coin(identifier: String(coinModel.identifier), timeFrame: timeFrame), decodeType: SingleCoinModel.self) { result in
             switch result {
             case .success(let resp):
                 self.setupChart(array: resp.data.history)
@@ -53,16 +73,7 @@ final class ChartsVC: UIViewController {
         }
     }
 
-    private func getPrices(array: [History]) -> [Double] {
-        let prices = array.map({ $0.price })
-        return prices.compactMap(Double.init)
-    }
-
-    private func getTimeStamp(array: [History]) -> [Int] {
-        let prices = array.map({ $0.timestamp })
-        return prices.compactMap(Int.init)
-    }
-
+    // MARK: - Setup view
     private func setupChart(array: [History]) {
         let pricesArray = getPrices(array: array)
         let timestampsArray = getTimeStamp(array: array)
@@ -87,15 +98,40 @@ final class ChartsVC: UIViewController {
         let data = LineChartData()
         data.addDataSet(line1)
 
-        let xFormatter = XAxisNameFormaterWithTime()
-        chartView.chart.xAxis.valueFormatter = xFormatter
-
         let yFormatter = YAxisValueFormatter()
         chartView.chart.leftAxis.valueFormatter = yFormatter
         chartView.chart.rightAxis.valueFormatter = yFormatter
 
+        chartView.chart.xAxis.valueFormatter = xFormatter
+
         chartView.chart.data = data
         chartView.chart.chartDescription?.text = coinModel.name
+    }
+
+    private func setupSegmentControl() {
+        chartView.segmentedControl.selectedSegmentIndex = 0
+        chartView.segmentedControl.addTarget(self, action: #selector(changedSegmentedControl), for: .valueChanged)
+    }
+
+    @objc private func changedSegmentedControl() {
+        let index = chartView.segmentedControl.selectedSegmentIndex
+        guard let title = chartView.segmentedControl.titleForSegment(at: index) else {
+            print("NO INDEX")
+            return
+        }
+        let raw = TimeFrame(rawValue: title)
+        timeFrame = raw
+    }
+
+    // MARK: - Functions
+    private func getPrices(array: [History]) -> [Double] {
+        let prices = array.map({ $0.price })
+        return prices.compactMap(Double.init)
+    }
+
+    private func getTimeStamp(array: [History]) -> [Int] {
+        let prices = array.map({ $0.timestamp })
+        return prices.compactMap(Int.init)
     }
 }
 
