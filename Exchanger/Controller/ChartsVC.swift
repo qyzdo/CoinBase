@@ -11,7 +11,7 @@ import Charts
 final class ChartsVC: UIViewController {
 
     // MARK: - Properties
-    var identifier: Int!
+    var coinModel: CoinElement!
 
     private var chartView: ChartView {
         return view as! ChartView
@@ -23,15 +23,25 @@ final class ChartsVC: UIViewController {
         self.view = ChartView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+        AppUtility.lockOrientation(.landscapeRight, andRotateTo: .landscapeRight)
+   }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        AppUtility.lockOrientation(.all)
+    }
+
     private func loadData() {
         let provider = ServiceProvider<CoinsService>()
 
-        provider.load(service: .coin(identifier: String(identifier)), decodeType: SingleCoinModel.self) { result in
+        provider.load(service: .coin(identifier: String(coinModel.identifier)), decodeType: SingleCoinModel.self) { result in
             switch result {
             case .success(let resp):
                 self.setupChart(array: resp.data.history)
@@ -85,7 +95,7 @@ final class ChartsVC: UIViewController {
         chartView.chart.rightAxis.valueFormatter = yFormatter
 
         chartView.chart.data = data
-        chartView.chart.chartDescription?.text = "My awesome chart"
+        chartView.chart.chartDescription?.text = coinModel.name
     }
 }
 
@@ -104,7 +114,18 @@ final class XAxisNameFormater: NSObject, IAxisValueFormatter {
 final class YAxisValueFormatter: NSObject, IAxisValueFormatter {
 
     func stringForValue( _ value: Double, axis _: AxisBase?) -> String {
-        return "\(value)$"
+        let formatter = NumberFormatter()
+        formatter.locale = .current
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 5
+
+        let nsValue = NSNumber(value: value)
+
+        guard let formattedNumber = formatter.string(from: nsValue) else {
+            return "Error"
+        }
+
+        return "\(formattedNumber)$"
     }
 }
 

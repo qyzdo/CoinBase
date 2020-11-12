@@ -105,7 +105,7 @@ final class MainVC: UIViewController {
 
     @objc private func openChartsButtonClicked() {
         let chartsVC = ChartsVC()
-        chartsVC.identifier = coins[selectedRow].identifier
+        chartsVC.coinModel = coins[selectedRow]
         navigationController?.pushViewController(chartsVC, animated: true)
     }
 
