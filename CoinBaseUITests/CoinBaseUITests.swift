@@ -7,7 +7,7 @@
 
 import XCTest
 
-class ExchangerUITests: XCTestCase {
+class CoinBaseUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
