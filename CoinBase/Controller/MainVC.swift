@@ -22,7 +22,9 @@ final class MainVC: UIViewController {
             setLabelCurrencies()
             setImage()
             mainView.pickerValueField.text = titles[selectedRow]
-            unwrapAndConvert()
+            if mainView.inputValueField.text?.trimmingCharacters(in: .whitespaces) != "" {
+                unwrapAndConvert()
+            }
         }
     }
 
