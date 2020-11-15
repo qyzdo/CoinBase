@@ -106,6 +106,10 @@ final class ChartsVC: UIViewController {
 
         chartView.chart.data = data
         chartView.chart.chartDescription?.text = coinModel.name
+
+        let marker = ChartMarker()
+        marker.chartView = chartView.chart
+        chartView.chart.marker = marker
     }
 
     private func setupSegmentControl() {
