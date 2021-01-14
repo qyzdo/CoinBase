@@ -13,6 +13,7 @@ JSON - Parsing data to created model using Codable
 
 MVC - Used MVC pattern when creating the application
 
+Swiftlint - Used to have more cleaned code
 
 ## Screenshots
 
